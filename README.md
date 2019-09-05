@@ -12,4 +12,6 @@
 
 ## Security Summary
 
-## Project Repository and Kanban
+## Links
+*[Project Repository](https://github.com/isxbot/software-assurance)
+*[Project Kanban](https://github.com/isxbot/software-assurance/projects/1)
