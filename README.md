@@ -1,16 +1,16 @@
 # FOSS Name
 
-## Examples 
+## FOSS Project Description and Statistics
+
+## Security Needs
 
 ## Security Features 
 
 ## Motivation
 
-## Statistics
+## License Summary and Contributor Agreement
 
-## Documentation
-
-## Security Summary
+## Security History
 
 ## Links
 * [Project Repository](https://github.com/isxbot/software-assurance)
