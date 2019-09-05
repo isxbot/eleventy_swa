@@ -1,4 +1,4 @@
-# <Our FOSS Product>
+# FOSS Name
 
 ## Examples 
 
