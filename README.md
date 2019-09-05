@@ -1,2 +1,2 @@
-# eleventy_swa
-Repository for the 11ty software assurance project by the sudo group.
+# Software Assurance
+Repository for the CYBR-8420 Software Assurance project.
