@@ -1,4 +1,4 @@
-# FOSS Name
+# Apache Kafka
 
 ## FOSS Project Description and Statistics
 
