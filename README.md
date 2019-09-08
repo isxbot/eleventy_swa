@@ -5,7 +5,7 @@
 ## Security Needs
 
 ## Security Features
-Because Apache Kafka is used to stream mission-critical data that includes sensitive data like personally identifiable information, confidential information, and Department of Defense classified Secret and Top Secret information, data integrity and security is essential.
+Because Apache Kafka is used to stream mission-critical data including personally identifiable information, confidential information, and Department of Defense classified Secret and Top Secret information, data integrity and security is essential.
 
 Kafka uses _authentication, authorization, and encryption_ to secure its clusters and data within. Per the [documentation](https://kafka.apache.org/documentation/#security), Kafka includes the following security features:
 1. Authentication of connections to brokers from clients (producers and consumers), other brokers and tools, using either SSL or SASL. Kafka supports the following SASL mechanisms:
