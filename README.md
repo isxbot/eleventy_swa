@@ -2,6 +2,24 @@
 
 ## FOSS Project Description and Statistics
 
+Kafka is a distributed steaming platform that functions as a messaging system, storage system, and as a stream processor. For messaging, Kafka can do both scale processing and multi-subscriber at the same time. For Kafka as a storage system, Kafka stores and replicates all data to disks for redundancy and allows for the users to requests an acknowlegement to ensure the write occured. In regards to Kafka as a stream processor, Kafka can read streams in real-time. Adding all three together you have a piece of software that is able to store and porcess both future messages and historical messages in an efficient manner. Kafka is a tailorable open source software that can be used on many platforms. 
+
+**Activity and Contributors**: 
+Kafka has an active community and has 579 contributors as of September of 2019. Shown in the photo below, retrieved from [openhub](https://www.openhub.net/p/apache-kafka) you can see the activity rise.
+![Activity](/KafkaActivity.png)
+
+ **Popularity**
+Kafka is a popular open source software with more than 13,477 stars on github and 7,000 forks as of September of 2019. Kafka is used by a lot of big companies such as Pinterest, The New York Times, Adidas, Rabobank, Box, Ancestry, Airbnb, Cisco, Netflix, Oracle, Paypal, and many more. You can find the full list [here:](https://kafka.apache.org/powered-by)
+
+**Languages Used**
+The majority of the language used with Kafka is Java, however, many other languages are used as well. These langugages consist of Scala, HTML, Python, Shell Script, XML, DOS Batch Script, XSL Transformation, Ruby, and JavaScript. Below is a chart detailing the above. This chart was retrieved from [openhub](https://www.openhub.net/p/apache-kafka)
+![Languages}(/KafkaLanguages.png)
+
+**Documentation Sources**
+
+Kafka has very extensive documentation, all documentation can be found [here](https://kafka.apache.org/documentation)
+
+ 
 ## Security Needs
 
 The following outlines possible security needs for three generic Kafka users: producers, consumers, and brokers.
@@ -61,7 +79,15 @@ Kafka also lends itself to the team's second criteria, as it has multitple secur
 Additionally, Kafka is mostly written in the Java programming language (followed by Kotlin), which all team members are familiar with. Given the popularity of Java and Kotlin, both languages are supported by tools used to analyze code, which will provide the team with necessary tools to complete a thorough software assurance process.
 
 ## License Summary and Contributor Agreement
+**License**
 
+Kafka uses Apache license 2.0. This allows for commercial use, modification, distribution, patent use, and private use. The limitations on this license prevents against trademark use, liability, and warranty. 
+
+**Procedures for Making Contributions**
+Kafka has very detailed contributing instructions that are located [here](https://kafka.apache.org/contributing/html) and [here](https://cwiki.apache.org/confluence/display/KAFKA/Contributing+Code+Changes)
+
+**Contributor Agreements**
+The agreement states that when contributing code you are affirming that the contribuiton is yours and that you license the work to the project and have the legal authority to do so.
 ## Security History
 
 ## Links
