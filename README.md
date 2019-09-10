@@ -27,11 +27,11 @@ Without message brokers, many service platforms would become untenably complex f
 
 ## Security History
 
-Kafka has had few security fixes implemented for subsequent releases, which are documented in their [security vulnerability] (https://kafka.apache.org/cve-list) page. If a possible vulnerability is suspected, it is reported to the [Apache Software Foundation] (security@kafka.apache.org), after which a security team works with the reporter to resolve it. Verified vulnerabilities are fixed followed by a publically announced new release.  
+Kafka has had few security fixes implemented for subsequent releases, which are documented in their [security vulnerability](https://kafka.apache.org/cve-list) page. If a possible vulnerability is suspected, it is reported to the [Apache Software Foundation](security@kafka.apache.org), after which a security team works with the reporter to resolve it. Verified vulnerabilities are fixed followed by a publically announced new release.  
 
 Thus far, only three vulnerabilites have been reported and patched for subsequent releases.  The first was  CVE-2017-12610, which allowed Kafka clients to impersonate another user by using a manufactured protocol message in SASL/PLAIN ir SASL/SCRAM authentication, while using the native Kafka PLAIN and SCRAM implementations.  The second was CVE-2018-1288, which let clients perform broker-privileged actions using a fetch request that corrupted data replication, causing data loss.  The most recent was CVE-2018-17196; this vulnerability enabled users to create a "produce" request that compromised the transaction ACL validation mechanism. Summaries for the three vulnerabilites are seen below.
 
-| CVE-2017-12610                                                     |
+| CVE-2017-12610     |                                               |
 | ------------------ | --------------------------------------------- |
 | Versions affected  | 0.10.0.0 to 0.10.2.1, 0.11.0.0 to 0.11.0.1    |
 | Fixed versions     | 0.10.2.2, 0.11.0.2, 1.0.0                     |
@@ -39,7 +39,7 @@ Thus far, only three vulnerabilites have been reported and patched for subsequen
 | Issue announced    | 26 July 2018                                  |
 
 
-| CVE-2018-1288                                                      |
+| CVE-2018-1288      |                                               |
 | ------------------ | --------------------------------------------- |
 | Versions affected  | 0.9.0.0 to 0.9.0.1, 0.10.0.0 to 0.10.2.1,     |
 |                    | 0.11.0.0 to 0.11.0.2, 1.0.0                   |
@@ -48,7 +48,7 @@ Thus far, only three vulnerabilites have been reported and patched for subsequen
 | Issue announced    | 26 July 2018                                  |
 
 
-| CVE-2018-17196                                                     |
+| CVE-2018-17196     |                                               |
 | ------------------ | --------------------------------------------- |
 | Versions affected  | 0.11.0.0 to 2.1.0                             |
 | Fixed versions     | 2.1.1 and later                               |
