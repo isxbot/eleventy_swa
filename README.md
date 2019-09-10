@@ -4,9 +4,7 @@
 
 ## Operational Environment
 
-Apache Kafka is a distributed streaming platform that offers three main functions that include the capability of publishing and subscribing to a record stream; the corresponding ability to store such streams in a secure manner with appropriate fault-tolerance measures, and the capacity to process live streams.   Therefore, Kafka is useful for building and handling real-time streaming pipelines constructed between applications and their underlying systems, and for building streaming applications that will appropriately manipulate such data. Kafka runs as a cluster on servers and stores data streams as *records*, which are categorized as distinct *topics*. 
-
-The four APIs at the heart of Kafka include the following:
+Kafka is useful for building and handling real-time streaming pipelines constructed between applications and their underlying systems, and for building applications that will appropriately manipulate such data. Kafka achieves these goals through its four core APIs:
 
 **The Producer API:** Allows applications to publish record steams to Kafka topics.
 
@@ -16,9 +14,19 @@ The four APIs at the heart of Kafka include the following:
 
 **The Connector API:** Allows construction of producers and consumer applications that link Kafka topics to other applications and systems.
 
-The aforementioned functions of Kafka have a wide range of use cases that require appropriate security measures.  One example is implementation as a message broker.  Message brokers are middleware program modules that translate messages using the sender's protocol, to the receiver's protocol.  Messages have headers, key byte blocks, and value byte blocks, each of variable length, all of which require an adequate encryption and authentication mechanisms via SSL. SSL (secure sockets layer) is a technology that establishes an encrypted link between two agents. This process involves generation of public-private key pairs associated with a given certificate for each broker in the transaction.  Kerberos is another authentication technique for clients, and requires adequate encryption between broker and producer or consumer.   
+The aforementioned APIs of Kafka have a wide range of use cases that require appropriate security measures.  One example is implementation as a message broker.  Message brokers are middleware program modules that translate messages using the sender's protocol, to the receiver's protocol.  Messages have headers, key byte blocks, and value byte blocks, each of variable length, all of which require an adequate encryption and authentication mechanisms via SSL. SSL requires generation of public-private key pairs associated with a given certificate for each broker in the transaction.  Kerberos is another authentication protocol that provides adequate encryption between broker and producer or consumer.  Without message brokers, many service platforms would become untenably complex for use with messaging via TCP or HTTP.
 
-Without message brokers, many service platforms would become untenably complex for use with messaging via TCP or HTTP.  Stock trading applications rely on message brokers to serve as a hub for opening and securing message channels, through which trade requests travel.  Cloudflare uses Kafka to process and store analytics logs on the order of hundreds of billions of events, per day.  Many other services use Kafka, or similar middleware, and all require secure communication pipelines between brokers and clients.  
+Pintrest is a social media platform that uses the Kafka Streams API to deliver spend data to ad servers.  Pintrest chose Kafka because it allows them to mitigate loss-of-revenue from overdelivery, which refers to ads that are shown for customers whose budgets have been depleted.  They needed a streaming service that could do the following:
+
+*Work for different types of ads, such as static ads, and those that integrated event-handlers.
+*Handle many thousands of events per-second.
+*Rapid update delivery to thousands of client machines with a delay of 10s or less.
+*Have absolutely no downtime.
+*Offer a lightweight infrastructure with easy maintenance.
+
+Pintrest evaluated other services, but found Kafka's millisecond delay guarantee and portable Java architecture to be easily disseminated and maintained.  They concluded Kafka to be ideal for constucting their predictive spend pipeline solution, which lessened ad overdelivery.
+
+Other operational environments examples include stock trading applications, which rely on message brokers to serve as a hub for opening and securing message channels, through which trade requests travel.  Cloudflare uses Kafka to process and store analytics logs on the order of hundreds of billions of events, per day.  Many other services use Kafka, or similar middleware, and all require secure communication pipelines between brokers and clients.  
 
 ## Security Needs
 
