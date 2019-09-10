@@ -27,7 +27,7 @@ Without message brokers, many service platforms would become untenably complex f
 
 ## Security History
 
-Kafka has had few security fixes implemented for subsequent releases, which are documented in their [security vulnerability](https://kafka.apache.org/cve-list) page. If a possible vulnerability is suspected, it is reported to the [Apache Software Foundation](security@kafka.apache.org), after which a security team works with the reporter to resolve it. Verified vulnerabilities are fixed followed by a publically announced new release.  
+Kafka has had few security fixes implemented for subsequent releases, which are documented in their [security vulnerability](https://kafka.apache.org/cve-list) page. If a possible vulnerability is suspected, it is reported to the [Apache Software Foundation](security@kafka.apache.org), after which a security team works with the reporter to resolve it. Verified vulnerabilities are fixed, followed by a publically announced new release.  
 
 Thus far, only three vulnerabilites have been reported and patched for subsequent releases.  The first was  CVE-2017-12610, which allowed Kafka clients to impersonate another user by using a manufactured protocol message in SASL/PLAIN ir SASL/SCRAM authentication, while using the native Kafka PLAIN and SCRAM implementations.  The second was CVE-2018-1288, which let clients perform broker-privileged actions using a fetch request that corrupted data replication, causing data loss.  The most recent was CVE-2018-17196; this vulnerability enabled users to create a "produce" request that compromised the transaction ACL validation mechanism. Summaries for the three vulnerabilites are seen below.
 
