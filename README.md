@@ -1,6 +1,6 @@
 # Apache Kafka
 
-## FOSS Project Description and Statistics
+## Description and Statistics
 
 ## Security Needs
 
