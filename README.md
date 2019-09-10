@@ -9,8 +9,11 @@ Apache Kafka is a distributed streaming platform that offers three main function
 The four APIs at the heart of Kafka include the following:
 
 **The Producer API:** Allows applications to publish record steams to Kafka topics.
+
 **The Consumer API:** Allows applications to subscribe to topics and process the records stored within them.
+
 **The Streams API:** Allows an application to process streams input from one or more topics, and then create output streams to other topics.
+
 **The Connector API:** Allows construction of producers and consumer applications that link Kafka topics to other applications and systems.
 
 The aforementioned functions of Kafka have a wide range of use cases that require appropriate security measures.  One example is implementation as a message broker.  Message brokers are middleware program modules that translate messages using the sender's protocol, to the receiver's protocol.  Messages have headers, key byte blocks, and value byte blocks, each of variable length, all of which require an adequate encryption and authentication mechanisms via SSL. SSL (secure sockets layer) is a technology that establishes an encrypted link between two agents. This process involves generation of public-private key pairs for each certificate, for each broker in the transaction.
