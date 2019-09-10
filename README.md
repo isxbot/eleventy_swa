@@ -13,7 +13,7 @@ Kafka is a popular open source software with more than 13,477 stars on github an
 
 **Languages Used**
 The majority of the language used with Kafka is Java, however, many other languages are used as well. These langugages consist of Scala, HTML, Python, Shell Script, XML, DOS Batch Script, XSL Transformation, Ruby, and JavaScript. Below is a chart detailing the above. This chart was retrieved from [openhub](https://www.openhub.net/p/apache-kafka)
-![Languages}(/KafkaLanguages.png)
+![Languages](/KafkaLanguages.png)
 
 **Documentation Sources**
 
