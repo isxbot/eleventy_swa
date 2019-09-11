@@ -59,7 +59,7 @@ The following outlines possible security needs for three generic Kafka users: pr
 * Encryption of confidential data retrieved from a broker.
 * Authentication of brokers from which data is retrieved.
 
-**Brokers** A group of server nodes responsible for read/write operations on specific topic partitions. A broker can be either a leader (which controls read/write operations for its partitions) or a replica (which copies partition data for fault-tolerance).
+**Brokers:** A group of server nodes responsible for read/write operations on specific topic partitions. A broker can be either a leader (which controls read/write operations for its partitions) or a replica (which copies partition data for fault-tolerance).
 
 **Security Needs of a Broker:**
 
