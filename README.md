@@ -19,7 +19,32 @@ The majority of the language used with Kafka is Java, however, many other langua
 
 Kafka has very extensive documentation, all documentation can be found [here](https://kafka.apache.org/documentation)
 
- 
+## Operational Environment
+
+Kafka is useful for building and handling real-time streaming pipelines constructed between applications and their underlying systems, and for building applications that will appropriately manipulate such data. Kafka achieves these goals through its four core APIs:
+
+**The Producer API:** Allows applications to publish record steams to Kafka topics.
+
+**The Consumer API:** Allows applications to subscribe to topics and process the records stored within them.
+
+**The Streams API:** Allows an application to process streams input from one or more topics, and then create output streams to other topics.
+
+**The Connector API:** Allows construction of producers and consumer applications that link Kafka topics to other applications and systems.
+
+The aforementioned APIs of Kafka have a wide range of use cases that require appropriate security measures.  One example is implementation as a message broker.  Message brokers are middleware program modules that translate messages using the sender's protocol, to the receiver's protocol.  Messages have headers, key byte blocks, and value byte blocks, each of variable length, all of which require an adequate encryption and authentication mechanisms via SSL. SSL requires generation of public-private key pairs associated with a given certificate for each broker in the transaction.  Kerberos is another authentication protocol that provides adequate encryption between broker and producer or consumer.  Without message brokers, many service platforms would become untenably complex for use with messaging via TCP or HTTP.
+
+Pintrest is a social media platform that uses the Kafka Streams API to deliver spend data to ad servers.  Pintrest chose Kafka because it allows them to mitigate loss-of-revenue from overdelivery, which refers to ads that are shown for customers whose budgets have been depleted.  They needed a streaming service that could do the following:
+
+* Work for different types of ads, such as static ads, and those that integrated event-handlers.
+* Handle many thousands of events per-second.
+* Rapid update delivery to thousands of client machines with a delay of 10s or less.
+* Have absolutely no downtime.
+* Offer a lightweight infrastructure with easy maintenance.
+
+Pintrest evaluated other services, but found Kafka's millisecond delay guarantee and portable Java architecture to be easily disseminated and maintained.  They concluded Kafka to be ideal for constucting their predictive spend pipeline solution, which lessened ad overdelivery.
+
+Other operational environments examples include stock trading applications, which rely on message brokers to serve as a hub for opening and securing message channels, through which trade requests travel.  Cloudflare uses Kafka to process and store analytics logs on the order of hundreds of billions of events, per day.  Many other services use Kafka, or similar middleware, and all require secure communication pipelines between brokers and clients.  
+
 ## Security Needs
 
 The following outlines possible security needs for three generic Kafka users: producers, consumers, and brokers.
@@ -89,6 +114,34 @@ Kafka has very detailed contributing instructions that are located [here](https:
 **Contributor Agreements**
 The agreement states that when contributing code you are affirming that the contribuiton is yours and that you license the work to the project and have the legal authority to do so.
 ## Security History
+
+Kafka has had few security fixes implemented for subsequent releases, which are documented in their [security vulnerability](https://kafka.apache.org/cve-list) page. If a possible vulnerability is suspected, it is reported to the [Apache Software Foundation](security@kafka.apache.org), after which a security team works with the reporter to resolve it. Verified vulnerabilities are fixed, followed by a publically announced new release.  
+
+Thus far, only three vulnerabilites have been reported and patched for subsequent releases.  The first was  CVE-2017-12610, which allowed Kafka clients to impersonate another user by using a manufactured protocol message in SASL/PLAIN or SASL/SCRAM authentication, while using the native Kafka PLAIN and SCRAM implementations.  The second was CVE-2018-1288, which let clients perform broker-privileged actions using a fetch request that corrupted data replication, causing data loss.  The most recent was CVE-2018-17196; this vulnerability enabled users to create a "produce" request that compromised the transaction ACL validation mechanism. Summaries for the three vulnerabilites are seen below.
+
+| CVE-2017-12610     |                                               |
+| ------------------ | --------------------------------------------- |
+| Versions affected  | 0.10.0.0 to 0.10.2.1, 0.11.0.0 to 0.11.0.1    |
+| Fixed versions     | 0.10.2.2, 0.11.0.2, 1.0.0                     |
+| Impact             | Issue could result in privilege escalation.   |
+| Issue announced    | 26 July 2018                                  |
+
+
+| CVE-2018-1288      |                                               |
+| ------------------ | --------------------------------------------- |
+| Versions affected  | 0.9.0.0 to 0.9.0.1, 0.10.0.0 to 0.10.2.1,     |
+|                    | 0.11.0.0 to 0.11.0.2, 1.0.0                   |
+| Fixed versions     | 0.10.2.2, 0.11.0.3, 1.0.1, 1.1.0              |
+| Impact             | Issue could potentially lead to data loss.    |
+| Issue announced    | 26 July 2018                                  |
+
+
+| CVE-2018-17196     |                                               |
+| ------------------ | --------------------------------------------- |
+| Versions affected  | 0.11.0.0 to 2.1.0                             |
+| Fixed versions     | 2.1.1 and later                               |
+| Impact             | Issue could result in privilege escalation.   |
+| Issue announced    | 10 July 2019                                  |
 
 ## Links
 * [Project Repository](https://github.com/isxbot/software-assurance)
