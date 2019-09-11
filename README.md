@@ -2,22 +2,17 @@
 
 ## Description and Statistics
 
-Kafka is a distributed steaming platform that functions as a messaging system, storage system, and as a stream processor. For messaging, Kafka can do both scale processing and multi-subscriber at the same time. For Kafka as a storage system, Kafka stores and replicates all data to disks for redundancy and allows for the users to requests an acknowlegement to ensure the write occured. In regards to Kafka as a stream processor, Kafka can read streams in real-time. Adding all three together you have a piece of software that is able to store and porcess both future messages and historical messages in an efficient manner. Kafka is a tailorable open source software that can be used on many platforms. 
+Kafka is a distributed streaming platform that functions as a messaging system, storage system, and as a stream processor. For messaging, Kafka can do both scale processing and multi-subscriber at the same time. For Kafka as a storage system, Kafka stores and replicates all data to disks for redundancy and allows for the users to request an acknowledgment to ensure the write occurred. In regards to Kafka as a stream processor, Kafka can read streams in real-time. Adding all three together you have a piece of software that is able to store and process both future messages and historical messages in an efficient manner. Kafka is a tailorable open source software that can be used on many platforms. 
 
-**Activity and Contributors**: 
-Kafka has an active community and has 579 contributors as of September of 2019. Shown in the photo below, retrieved from [openhub](https://www.openhub.net/p/apache-kafka) you can see the activity rise.
+**Activity and Contributors:** Kafka has an active community and has 579 contributors as of September of 2019. Shown in the photo below, retrieved from [openhub](https://www.openhub.net/p/apache-kafka) you can see the activity rise.
 ![Activity](/KafkaActivity.png)
 
- **Popularity**
-Kafka is a popular open source software with more than 13,477 stars on github and 7,000 forks as of September of 2019. Kafka is used by a lot of big companies such as Pinterest, The New York Times, Adidas, Rabobank, Box, Ancestry, Airbnb, Cisco, Netflix, Oracle, Paypal, and many more. You can find the full list [here:](https://kafka.apache.org/powered-by)
+**Popularity:** Kafka is a popular open source software with more than 13,477 stars on GitHub and 7,000 forks as of September of 2019. Kafka is used by a lot of big companies such as Pinterest, The New York Times, Adidas, Rabobank, Box, Ancestry, Airbnb, Cisco, Netflix, Oracle, Paypal, and many more. You can find the full list [here:](https://kafka.apache.org/powered-by)
 
-**Languages Used**
-The majority of the language used with Kafka is Java, however, many other languages are used as well. These langugages consist of Scala, HTML, Python, Shell Script, XML, DOS Batch Script, XSL Transformation, Ruby, and JavaScript. Below is a chart detailing the above. This chart was retrieved from [openhub](https://www.openhub.net/p/apache-kafka)
+**Languages Used:** The majority language used with Kafka is Java, however, many other languages are used as well. These languages consist of Scala, HTML, Python, Shell Script, XML, DOS Batch Script, XSL Transformation, Ruby, and JavaScript. Below is a chart detailing the above. This chart was retrieved from [openhub](https://www.openhub.net/p/apache-kafka)
 ![Languages](/KafkaLanguages.png)
 
-**Documentation Sources**
-
-Kafka has very extensive documentation, all documentation can be found [here](https://kafka.apache.org/documentation)
+**Documentation Sources:** Kafka has very extensive documentation, all documentation can be found [here](https://kafka.apache.org/documentation)
 
 ## Operational Environment
 
@@ -33,7 +28,7 @@ Kafka is useful for building and handling real-time streaming pipelines construc
 
 The aforementioned APIs of Kafka have a wide range of use cases that require appropriate security measures.  One example is implementation as a message broker.  Message brokers are middleware program modules that translate messages using the sender's protocol, to the receiver's protocol.  Messages have headers, key byte blocks, and value byte blocks, each of variable length, all of which require an adequate encryption and authentication mechanisms via SSL. SSL requires generation of public-private key pairs associated with a given certificate for each broker in the transaction.  Kerberos is another authentication protocol that provides adequate encryption between broker and producer or consumer.  Without message brokers, many service platforms would become untenably complex for use with messaging via TCP or HTTP.
 
-Pintrest is a social media platform that uses the Kafka Streams API to deliver spend data to ad servers.  Pintrest chose Kafka because it allows them to mitigate loss-of-revenue from overdelivery, which refers to ads that are shown for customers whose budgets have been depleted.  They needed a streaming service that could do the following:
+Pinterest is a social media platform that uses the Kafka Streams API to deliver spend data to ad servers.  Pinterest chose Kafka because it allows them to mitigate loss-of-revenue from overdelivery, which refers to ads that are shown for customers whose budgets have been depleted.  They needed a streaming service that could do the following:
 
 * Work for different types of ads, such as static ads, and those that integrated event-handlers.
 * Handle many thousands of events per-second.
@@ -41,32 +36,32 @@ Pintrest is a social media platform that uses the Kafka Streams API to deliver s
 * Have absolutely no downtime.
 * Offer a lightweight infrastructure with easy maintenance.
 
-Pintrest evaluated other services, but found Kafka's millisecond delay guarantee and portable Java architecture to be easily disseminated and maintained.  They concluded Kafka to be ideal for constucting their predictive spend pipeline solution, which lessened ad overdelivery.
+Pinterest evaluated other services, but found Kafka's millisecond delay guarantee and portable Java architecture to be easily disseminated and maintained.  They concluded Kafka to be ideal for constructing their predictive spend pipeline solution, which lessened ad overdelivery.
 
-Other operational environments examples include stock trading applications, which rely on message brokers to serve as a hub for opening and securing message channels, through which trade requests travel.  Cloudflare uses Kafka to process and store analytics logs on the order of hundreds of billions of events, per day.  Many other services use Kafka, or similar middleware, and all require secure communication pipelines between brokers and clients.  
+Other operational environments examples include stock trading applications, which rely on message brokers to serve as a hub for opening and securing message channels, through which trade requests travel.  Cloudflare uses Kafka to process and store analytics logs on the order of hundreds of billions of events per day.  Many other services use Kafka, or similar middleware, and all require secure communication pipelines between brokers and clients.  
 
 ## Security Needs
 
 The following outlines possible security needs for three generic Kafka users: producers, consumers, and brokers.
 
-Producers - clients that publishes data to a specific topic on the server (Kafka cluster) via a broker. This data is stored for a set retention period.
+**Producers:** Clients that publishe data to a specific topic on the server (Kafka cluster) via a broker. This data is stored for a set retention period.
 
-Security Needs of a Producer:
+**Security Needs of a Producer:**
 
 * Encryption of confidential data streamed to a broker.
 * Authentication of brokers to which data is streamed.
 * Confirmation that data was successfully delivered to the broker. 
 	
-Consumers - clients that subscribes to various topics within a kafka cluster. The data for a topic is retrieved via a broker and streamed to the consumer.
+**Consumers:** Clients that subscribe to various topics within a kafka cluster. The data for a topic is retrieved via a broker and streamed to the consumer.
 
-Security Needs of a Consumer:
+**Security Needs of a Consumer:**
 
 * Encryption of confidential data retrieved from a broker.
 * Authentication of brokers from which data is retrieved.
 
-Brokers - a group of server nodes responsible for read/write operations on specific topic partitions. A broker can be either a leader (which controls read/write operations for its partitions) or a replica (which copies partition data for fault-tolerance).
+**Brokers:** A group of server nodes responsible for read/write operations on specific topic partitions. A broker can be either a leader (which controls read/write operations for its partitions) or a replica (which copies partition data for fault-tolerance).
 
-Security Needs of a Broker:
+**Security Needs of a Broker:**
 
 * Encryption of confidential data received, delivered and stored by the broker.
 * Authentication of the server on which the broker instance exists.
@@ -99,25 +94,21 @@ Next, the team evaluated the software as to whether it would be a good candidate
 
 Apache Kafka is a good fit for both of the teams requirements because it is a software that is being used by small and large organizations in different production environments, and some of the team members have already encountered Kafka in a professional setting. This makes Kafka a good fit as a realistic example of a software assurance case.
 
-Kafka also lends itself to the team's second criteria, as it has multitple security requirements and features in place. The software is used to stream massive amounts of data to multiple clients, and the data is often sensitive in nature, so it is critical that data security and integrity is maintained. This makes for a good exercise in software assurance.
+Kafka also lends itself to the team's second criteria, as it has multiple security requirements and features in place. The software is used to stream massive amounts of data to multiple clients, and the data is often sensitive in nature, so it is critical that data security and integrity is maintained. This makes for a good exercise in software assurance.
 
 Additionally, Kafka is mostly written in the Java programming language (followed by Kotlin), which all team members are familiar with. Given the popularity of Java and Kotlin, both languages are supported by tools used to analyze code, which will provide the team with necessary tools to complete a thorough software assurance process.
 
 ## License Summary and Contributor Agreement
-**License**
+**License:** Kafka uses Apache license 2.0. This allows for commercial use, modification, distribution, patent use, and private use. The limitations on this license prevents against trademark use, liability, and warranty. 
 
-Kafka uses Apache license 2.0. This allows for commercial use, modification, distribution, patent use, and private use. The limitations on this license prevents against trademark use, liability, and warranty. 
+**Procedures for Making Contributions:** Kafka has very detailed contributing instructions that are located [here](https://kafka.apache.org/contributing/html) and [here](https://cwiki.apache.org/confluence/display/KAFKA/Contributing+Code+Changes)
 
-**Procedures for Making Contributions**
-Kafka has very detailed contributing instructions that are located [here](https://kafka.apache.org/contributing/html) and [here](https://cwiki.apache.org/confluence/display/KAFKA/Contributing+Code+Changes)
-
-**Contributor Agreements**
-The agreement states that when contributing code you are affirming that the contribuiton is yours and that you license the work to the project and have the legal authority to do so.
+**Contributor Agreements:** The agreement states that when contributing code you are affirming that the contribution is yours and that you license the work to the project and have the legal authority to do so.
 ## Security History
 
-Kafka has had few security fixes implemented for subsequent releases, which are documented in their [security vulnerability](https://kafka.apache.org/cve-list) page. If a possible vulnerability is suspected, it is reported to the [Apache Software Foundation](security@kafka.apache.org), after which a security team works with the reporter to resolve it. Verified vulnerabilities are fixed, followed by a publically announced new release.  
+Kafka has had few security fixes implemented for subsequent releases, which are documented in their [security vulnerability](https://kafka.apache.org/cve-list) page. If a possible vulnerability is suspected, it is reported to the [Apache Software Foundation](security@kafka.apache.org), after which a security team works with the reporter to resolve it. Verified vulnerabilities are fixed, followed by a publicly announced new release.  
 
-Thus far, only three vulnerabilites have been reported and patched for subsequent releases.  The first was  CVE-2017-12610, which allowed Kafka clients to impersonate another user by using a manufactured protocol message in SASL/PLAIN or SASL/SCRAM authentication, while using the native Kafka PLAIN and SCRAM implementations.  The second was CVE-2018-1288, which let clients perform broker-privileged actions using a fetch request that corrupted data replication, causing data loss.  The most recent was CVE-2018-17196; this vulnerability enabled users to create a "produce" request that compromised the transaction ACL validation mechanism. Summaries for the three vulnerabilites are seen below.
+Thus far, only three vulnerabilities have been reported and patched for subsequent releases.  The first was  CVE-2017-12610, which allowed Kafka clients to impersonate another user by using a manufactured protocol message in SASL/PLAIN or SASL/SCRAM authentication, while using the native Kafka PLAIN and SCRAM implementations.  The second was CVE-2018-1288, which let clients perform broker-privileged actions using a fetch request that corrupted data replication, causing data loss.  The most recent was CVE-2018-17196; this vulnerability enabled users to create a "produce" request that compromised the transaction ACL validation mechanism. Summaries for the three vulnerabilities are seen below.
 
 | CVE-2017-12610     |                                               |
 | ------------------ | --------------------------------------------- |
