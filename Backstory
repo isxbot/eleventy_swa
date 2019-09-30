@@ -1,4 +1,4 @@
-_Backstory_
+**Backstory**
 Kafka is a distributed streaming platform used to route and process queues of record streams in a fault tolerant manner.  It is used for managing data pipelines between systems and applications, as well serving as a platform for building real-time streaming applications.
 Kafka is used as a message broker in a wide range of usage environments.  Examples include:
 
