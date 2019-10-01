@@ -4,7 +4,7 @@ Sarah, the system administrator at Fakebook needs to aggregate all of the logs f
 
 First, Sarah needs to setup a Kafka topic where the subsystems will publish their logs. Then, each subsystem needs to be registered as a producer to allow each system to publish log data to their relevant topic. Finally, Sarah needs to setup the systems that will be processing log data as consumers of each log topic.
 
-#### Misuse Case - Intentionally Misconfigure Broker Retention Time
+#### Misuse Case - Misconfigure Broker Retention Time
 
 Greg is a bad actor who recently separated from his girlfriend, who has blocked him on Fakebook. Greg wants to access her personal data, but wants to ensure that he doesn't get caught in the process. To do this, Greg needs to reconfigure the Kafka topic hosting the aggregated logs to have a retention time of one millisecond, which will drop the log data from the topic after that time. This will allow Greg to access the user information unnoticed during that time.
 
