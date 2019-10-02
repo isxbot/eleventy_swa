@@ -9,7 +9,7 @@ First, Sarah needs to setup a Kafka topic where the subsystems will publish thei
 Greg is a bad actor who recently separated from his girlfriend, who has blocked him on Fakebook. Greg wants to access her personal data, but wants to ensure that he doesn't get caught in the process. To do this, Greg needs to reconfigure the Kafka topic hosting the aggregated logs to have a retention time of one millisecond, which will drop the log data from the topic after that time. This will allow Greg to access the user information unnoticed during that time.
 
 #### Diagram
-![Use Case/Abuse Case Diagram](/images/UseCaseDiagram_LogAggregation.png)Greg
+![Use Case/Abuse Case Diagram](/images/UseCaseDiagram_LogAggregation)
 
 #### Advertised Security Features of Kafka
 Apacha Kafka ships with the security features necessary to avoid this abuse case from being carried out. Per the documentation:
