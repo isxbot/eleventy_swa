@@ -66,3 +66,23 @@ Additionally, Kafka includes multiple authentication implementations:
 * Authenticatin using SASL
   *  SASL/Kerberos
   * SASL/PLAIN
+
+#### Use Case
+
+Todd, the system Administrator, needs user site activity to be consumed and processed by multiple services. This will allow Fakebook to analyze users' activity to do things like serve relevant ads and see suggest new connections to users. Todd wants the users' activity to be protected from unauthorized access, so that users' privacy can be maintained.
+
+To do this, Todd will need to set up a Kafka broker to consume user site activity data. Additionally, Todd needs to set up encryption and authentication on the broker to ensure unauthorized parties can't access the data.
+
+#### Misuse Case
+
+Chlad Tupin, a hacker, is running a misinformation campaign, and wants to access the user site activity stream to learn more about how users interact with Fakebook. Not only will this allow to Chlad provide more targeted misinformation, but it will also allow Chlad gather useful information for spear-phising attacks.
+
+To access the user site activity stream, Chlad can needs to intercept the user site activity stream. Additionally, Chlad can replicate data stored on the broker's relevant topic.
+
+#### Diagram
+
+![Use Case Diagram](/images/UseCaseDiagram_UserSiteActivity.png)
+
+#### Relevant Advertised Security Features of Kafka
+
+Kafka allows for SSL/TLS to be used for encrytpion in transit between producers/Kafka/and consumers. This will prevent intercepted streams from being useable. Additionally, Kafka provides user authorization and access control lists to limit access and actions, such as replicating data from a topic.
