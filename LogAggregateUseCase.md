@@ -10,7 +10,7 @@ First, Sarah needs to setup a Kafka topic where the subsystems will publish thei
 Greg is a bad actor who recently separated from his girlfriend, who has blocked him on Fakebook. Greg wants to access her personal data, but wants to ensure that he doesn't get caught in the process, so he wants to remove a portion of the aggregated log records. To do this, Greg needs to reconfigure the Kafka topic hosting the aggregated logs to have a retention time of one millisecond, which will drop the log data from the topic after that time. Additionally, Greg can set the size of records to be kept to 1 byte. Finally, Greg will attempt to manually delete the logs from the broker. These actions will allow Greg to act within the system without the risk of being exposed by the system logs.
 
 #### Diagram
-![Use Case/Abuse Case Diagram](/images/UseCaseDiagram_LogAggregation)
+![Use Case/Abuse Case Diagram](/images/UseCaseDiagram_LogAggregation.png)
 
 #### Advertised Security Features of Kafka
 Apacha Kafka ships with multiple security features that mitigate or prevent the abuse case from being carried out successfully. Per the documentation:
