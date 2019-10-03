@@ -13,7 +13,7 @@ Greg is a bad actor who recently separated from his girlfriend, who has blocked 
 ![Use Case/Abuse Case Diagram](/images/UseCaseDiagram_LogAggregation)
 
 #### Advertised Security Features of Kafka
-Apacha Kafka ships with the security features necessary to avoid this abuse case from being carried out. Per the documentation:
+Apacha Kafka ships with multiple security features that mitigate or prevent the abuse case from being carried out successfully. Per the documentation:
 >Kafka ships with a pluggable Authorizer and an out-of-box authorizer implementation that uses ZooKeeper to store all the ACLs. It is important to set ACLs because otherwise access to resources is limited to super users when an authorizer is configured. The default behavior is such that if a resource has no associated ACLs, then no one is allowed to access the resource, except super users. It is possible to change this behavior, as we discuss below.
 
 Additionally, Kafka includes multiple authentication implementations:
