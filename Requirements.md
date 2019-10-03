@@ -81,7 +81,7 @@ To access the user site activity stream, Chlad can needs to intercept the user s
 
 #### Diagram
 
-![Use Case Diagram](/images/UseCaseDiagram_UserSiteActivity.jpeg)
+![Use Case Diagram](/images/UseCaseDiagram_UserSiteActivity.png)
 
 #### Relevant Advertised Security Features of Kafka
 
