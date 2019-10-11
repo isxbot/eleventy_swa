@@ -4,7 +4,7 @@
 
 ![Data Retention](images/AssuranceCase_DataRetention.png)
 
-# Evidence
+### Evidence
 
 * E1 - Assurance case 2 uses C2 as its top level claim and shows that Kafka reduces data loss via replication. Therefore, it is less likely that data will be lost before the configured retention period if replication is used. 
 
@@ -16,7 +16,7 @@
 
 ![Replication](images/AssuranceCase_Replication.jpg)
 
-# Evidence
+### Evidence
 
 * E1 - From the [Apache Kafka documentation](https://kafka.apache.org/documentation/) we learn that "Kafka is run as a cluster on one or more servers that can span multiple datacenters." Therefore, even if an entire datacenter were to fail, data in a multi-broker cluster could still be recovered.
 
@@ -30,7 +30,7 @@
 
 ![ACL](images/AssuranceCase_ACL.png)
 
-# Evidence
+### Evidence
 
 * E1 - The [Apache Kafka documentation](https://kafka.apache.org/documentation/) explains that "SimpleAclAuthorizer now logs access denials to the authorizer log by default." This al   erts admins to any unauthorized user repeatedly trying to access a resource, so that they are stopped before they are successful.
 
@@ -44,7 +44,17 @@
 
 ![Digital Signature](images/AssuranceCase_Digital_Signatures.png)
 
-# Evidence
+### Evidence
 
 The first piece of evidence (E1) stems from Kafka's dynamic security settings.  System administrators can force an SSL connection between all server cluster brokers and any clients, by activating a flag that requires SSL to be enabled on both ends of the data pipeline.  This flag is set to 'false', by default, and must be activated manually.  This feature supports claim (C2) and ensures that SSL is verified for each session.
 Older versions of Kafka did not require brokers to be verified using their FQDN (full qualified domain name) and IP address, which presented the threat of man-in-the-middle attacks. Newer versions do require such verification (E2), and system administrators can ensure this protection is running by setting automatic updates to broker and client Kafka APIs (C5). SSL key pairs must appropriately configured using the RSA or ECC algorithms, in order for SSL to work. Therefore, a flag is set with parameters to allow for key pair generation(C6); once this is done, Kafka will not allow a broker-client or broker-broker connection without the specified SSL connection(E3). Older client APIs did not implement SSL; the way to prevent pipelines with these older APIs is configuration of up-to-date Kafka brokers to require an SSL session or to refuse granting a session token with older client APIs (C7). This is established via a Kafka broker API flag (E4).
+
+## Assurance Case 5
+
+![Encryption Assurance Case(images/AssuranceCase_Encryption.jpeg)
+
+### Evidence
+
+Evidence for C7 (E1) would include a report that would show that alerts are properly showing for any changes in user permissions and that the proper flags are sending. This report would also include a detailed list of users and the access permissions they have and if the permissions have changed since the last time the report was generated. Evidence for C5 (E3) would include a penetration test and a network connection report showing that the legacy systems are properly sandboxed and containerized. Evidence for C6 (E2) would be a log report that can be ran from kafka's pre-configured logs (ssl.enabled.protocols & ssl.protocol) that shows what versions of SSL are allowed and how they are configured. 
+
+
