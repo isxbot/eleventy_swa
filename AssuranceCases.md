@@ -6,9 +6,9 @@
 
 # Evidence
 
-* E1 - Assurance case 5 uses C2 as its top level claim and shows that Kafka reduces data loss via replication. Therefore, it is less likely that data will be lost before the configured retention period if replication is used. 
+* E1 - Assurance case 2 uses C2 as its top level claim and shows that Kafka reduces data loss via replication. Therefore, it is less likely that data will be lost before the configured retention period if replication is used. 
 
-* E2 - Assurance case 2 uses C3 as its top level claim and shows that Kafka’s access control lists prevent unauthorized users from changing broker configurations. This makes it unlikely that a malicious user could change a broker configuration to have it drop data earlier than anticipated (after 1ms for example).
+* E2 - Assurance case 3 uses C3 as its top level claim and shows that Kafka’s access control lists prevent unauthorized users from changing broker configurations. This makes it unlikely that a malicious user could change a broker configuration to have it drop data earlier than anticipated (after 1ms for example).
 
 * E3 - The [AdminClient Javadoc](https://kafka.apache.org/23/javadoc/index.html?org/apache/kafka/clients/admin/AdminClient.html) indicates that AdminClient can be used to periodically check configurations while an application is running. If a broker topic’s retention time is found to be misconfigured, it can be corrected before data is written to it.
 
