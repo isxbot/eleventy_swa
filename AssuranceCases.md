@@ -51,7 +51,7 @@ Older versions of Kafka did not require brokers to be verified using their FQDN 
 
 ## Assurance Case 5
 
-![Encryption Assurance Case(images/AssuranceCase_Encryption.jpeg)
+![Encryption Assurance]Case(images/AssuranceCase_Encryption.jpeg)
 
 ### Evidence
 
