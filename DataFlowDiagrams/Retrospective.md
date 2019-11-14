@@ -1,0 +1,3 @@
+### Retrospective
+
+We did a good job creating project tickets and dividing the work fairly between us. We also communicated effectively during class and via slack. However, we struggled with time management and put off a lot of the work until the last moment. Also, we failed to effectively utilize github for version control and stored multiple copies of our data flow diagrams on canvas instead. However, even if we had used github, this software/filetype makes collaboration difficult and merging our independent mitagations into one copy a hassle.
