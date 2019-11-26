@@ -1,6 +1,10 @@
 # Static Code Analysis
 
 ## Review Strategy
+Because Apache Kafka has a large code base, we want to focus our review efforts on security related issues. To do this we have developed the following code review strategy:
+* Perform static code analysis using Codacy and SpotBugs.
+* Identify security related results
+* Perform manual code review on high interest results
 
 ## Code Review Results
 
