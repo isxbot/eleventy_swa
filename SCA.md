@@ -55,10 +55,10 @@ At first glance, this flag seems to be a serious problem, but after review we ha
 19 potential issues for this pattern were discovered. Codacy’s description of the issue is as follows:
 
 >The use of a predictable random value can lead to vulnerabilities when used in certain security critical contexts. For example, when the value is used as:
->a CSRF token
->a password reset token (sent by email)
->any other secret value
->A quick fix could be to replace the use of java.util.Random with something stronger, such as java.security.SecureRandom.”
+>*a CSRF token
+>*a password reset token (sent by email)
+>*any other secret value
+>*A quick fix could be to replace the use of java.util.Random with something stronger, such as java.security.SecureRandom.”
 
 This is closely related to [CWE-330: Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html) where “The software may use insufficiently random numbers or values in a security context that depends on unpredictable numbers.”
 
