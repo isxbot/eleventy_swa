@@ -52,7 +52,7 @@ At first glance, this flag seems to be a serious problem, but after review we ha
 * All of the files that have been flagged for this error level issue utilize the unencrypted sockets in question for traffic on localhost only, and do not transmit data over-the-wire.
 
 ### Prohibit weak random
-19 potential issues for this pattern were discovered. Codacy’s description of the issue is as follows:
+19 potential issues for this pattern were discovered. Codacy’s description of the pattern is as follows:
 
 >The use of a predictable random value can lead to vulnerabilities when used in certain security critical contexts. For example, when the value is used as:
 >* a CSRF token
@@ -60,12 +60,12 @@ At first glance, this flag seems to be a serious problem, but after review we ha
 >* any other secret value
 >* A quick fix could be to replace the use of java.util.Random with something stronger, such as java.security.SecureRandom.”
 
-This is closely related to [CWE-330: Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html) where “The software may use insufficiently random numbers or values in a security context that depends on unpredictable numbers.”
+This is closely related to [CWE-330: Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html) where “the software may use insufficiently random numbers or values in a security context that depends on unpredictable numbers.”
 
-For manual review, I went through each of the potential issues to determine if they were using a predictable random number generators in one of the security critical contexts mentioned above.
+For manual review, I went through each of the potential issues to determine if they were using a predictable random number generator in one of the security critical contexts mentioned above.
 
 * core/src/main/scala/kafka/log/LogConfig.scala, core/src/main/scala/kafka/security/authorizer/AclAuthorizer.scala, core/src/main/scala/kafka/utils/Throttler.scala
-	* These files use a random number to vary the length of time processes are delayed. For example, in AclAuthorizer.scala if an update to the access control list fails, the client is put to sleep for a brief amount of time so that it isn’t competing with other clients trying to update the list. The random number adds jitter to vary the length of time these clients are sleeping, so that multiple competing clients aren’t all asleep at the same time. Because this is not one of the security critical contexts mentioned earlier, using a predictable random number in this situation isn’t a concern.
+	* These files use a random number to vary the length of time processes are delayed. For example, in AclAuthorizer.scala if an update to the access control list fails, the client is put to sleep for a brief amount of time so that it isn’t competing with other clients also trying to update the list. The random number adds jitter to vary the length of time these clients are sleeping, so that multiple competing clients aren’t all asleep at the same time. Because this is not one of the security critical contexts mentioned earlier, using a predictable random number in this situation isn’t a concern.
 * core/src/main/scala/kafka/tools/ConsoleConsumer.scala
 	* This file uses a random number to give a consumer group a unique identifier. Again, this isn’t a security critical context, so it’s fine to use a predictable random number in this situation.
 
