@@ -37,7 +37,7 @@ Two files were flagged for this security patter: release.py and security config.
 ### Hardcoded temp directory
 Three files were flagged for this security pattern: kafka.py, security_config.py, and delegation_token_test.py.
 
-* None of the flagged files are called at runtime, but are used during set up for tests. The files assume the temporary directory is located at /tmp, and have hardcoded that value in several variables. Typically Apache Kafka is run in a Linunx environment, but it is possible to run in other environments. Although none of these files are called at runtime, it would better practice to use the following library to check the location of the temporary directory:
+* None of the flagged files are called at runtime, but are used during set up for tests. The files assume the temporary directory is located at /tmp, and have hardcoded that value in several variables. Typically Apache Kafka is run in a Linux environment, but it is possible to run in other environments. Although none of these files are called at runtime, it would better practice to use the following library to check the location of the temporary directory:
 
 ```python
 import tempfile
@@ -50,6 +50,27 @@ Four files were flagged for this security patter: DynamicConnectionQuotaTest.sca
 At first glance, this flag seems to be a serious problem, but after review we have found several reasons why these are false positives.
 * None of these files are called at runtime, and are only called during tests.
 * All of the files that have been flagged for this error level issue utilize the unencrypted sockets in question for traffic on localhost only, and do not transmit data over-the-wire.
+
+### Prohibit weak random
+19 potential issues for this pattern were discovered. Codacy’s description of the issue is as follows:
+
+>The use of a predictable random value can lead to vulnerabilities when used in certain security critical contexts. For example, when the value is used as:
+>a CSRF token
+>a password reset token (sent by email)
+>any other secret value
+>A quick fix could be to replace the use of java.util.Random with something stronger, such as java.security.SecureRandom.”
+
+This is closely related to [CWE-330: Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html) where “The software may use insufficiently random numbers or values in a security context that depends on unpredictable numbers.”
+
+For manual review, I went through each of the potential issues to determine if they were using a predictable random number generators in one of the security critical contexts mentioned above.
+
+*core/src/main/scala/kafka/log/LogConfig.scala, core/src/main/scala/kafka/security/authorizer/AclAuthorizer.scala, core/src/main/scala/kafka/utils/Throttler.scala
+	*These files use a random number to vary the length of time processes are delayed. For example, in AclAuthorizer.scala if an update to the access control list fails, the client is put to sleep for a brief amount of time so that it isn’t competing with other clients trying to update the list. The random number adds jitter to vary the length of time these clients are sleeping, so that multiple competing clients aren’t all asleep at the same time. Because this is not one of the security critical contexts mentioned earlier, using a predictable random number in this situation isn’t a concern.
+*core/src/main/scala/kafka/tools/ConsoleConsumer.scala
+	*This file uses a random number to give a consumer group a unique identifier. Again, this isn’t a security critical context, so it’s fine to use a predictable random number in this situation.
+
+The remaining flagged files are located in a test folder and aren’t called at runtime.
+ 
 
 ### Subprocess without shell equals true
 Two files were flagged for this issue: release.py and kafka-merge-pr.py.
