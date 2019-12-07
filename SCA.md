@@ -80,3 +80,10 @@ This issue is similar to the 'Subprocess popen with shell equals true' above in 
 Two files were flagged for this issue: Log.scala and LogManager.scala.
 
 This issue takes into consideration that the 'path traversal attack technique allows an attacker access to files, directories, and commands that potentially reside outside the web document.' After review, we have found that neither of the flagged files poses a risk, as both are related to internal logging. The methods that were flagged are used to perform basic CRUD operations on files related to internal logs, and are not exposed to the user.
+
+## Collaboration
+
+### [Pull Requests](https://github.com/isxbot/software-assurance/pulls?q=is%3Apr+is%3Aclosed)
+
+### [Project Board](https://github.com/isxbot/software-assurance/projects/3)
+
