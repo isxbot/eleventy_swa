@@ -82,6 +82,7 @@ Two files were flagged for this issue: Log.scala and LogManager.scala.
 This issue takes into consideration that the 'path traversal attack technique allows an attacker access to files, directories, and commands that potentially reside outside the web document.' After review, we have found that neither of the flagged files poses a risk, as both are related to internal logging. The methods that were flagged are used to perform basic CRUD operations on files related to internal logs, and are not exposed to the user.
 
 ## Collaboration
+The team efficiently divided the project code for manual review and subsequent analysis via Codacy.  The tickets were created and appropriately migrated through the stages of completion, with review.  However, we had some difficulty concerning how to classify the security issues, which we resolved as a team by agreeing to investigate issues within hotspot categories.  We will carry the same decision-making structure to the final part of the project.
 
 ### [Pull Requests](https://github.com/isxbot/software-assurance/pulls?q=is%3Apr+is%3Aclosed)
 
